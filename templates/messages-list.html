@@ -1,0 +1,41 @@
+<?php
+if ($tableMessages && is_array($tableMessages)) : 
+foreach ($tableMessages as $oneMessage) : 
+    if ($oneMessage->thread) { 
+        if ($oneMessage->thread == 'works') {
+            $thread = 'Приложение работает';
+        }
+        elseif ($oneMessage->thread == 'crash') {
+            $thread = 'Системный сбой';
+        }
+        else {
+            $thread = '???';
+        }
+     }
+?>
+<div class="row">
+<div class="col d-flex justify-content-center">
+    <div class="card" style="width: 50%;">
+        <div class="card-body">
+        <h5 class="card-title"><?= $thread; ?></h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+            <?php
+                if ($oneMessage->gender == 'male') {
+                    echo 'Господин ';
+                } else {
+                    echo 'Госпожа ';
+                }
+                echo $oneMessage->fullname . ' | ' . $oneMessage->email; 
+            ?>
+        </h6>
+        <p class="card-text"><?= $oneMessage->maintext; ?></p>
+        <a href="<?= $oneMessage->fileurl; ?>" class="card-link">Файл отчета</a>
+        </div>
+    </div>
+</div>
+</div>
+<br/>
+<?php 
+endforeach;
+endif;
+?>

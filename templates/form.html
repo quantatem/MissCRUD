@@ -1,0 +1,48 @@
+<form action="<?= $indexaction; ?>" method="POST">
+<div class="row mb-3">
+        <label>Имя</label>
+        <div class="col-sm-10">
+            <input type="text" name="firstname" required>
+        </div>
+</div>
+<div class="row mb-3">
+    <label>Фамилия</label>
+    <div class="col-sm-10">
+        <input type="text" name="lastname">
+    </div>
+</div>
+<div class="row mb-3">
+    <label>Email</label>
+    <div class="col-sm-10">
+        <input type="email" name="email" required>
+    </div>
+</div>
+<fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-4 pt-0">Ваш пол</legend>
+    <div class="col-sm-10">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="radioMale" value="male" checked>
+            <label class="form-check-label" for="radioMale">
+                Мужской
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="radioFemale" value="female">
+            <label class="form-check-label" for="radioFemale">
+                Женский
+            </label>
+        </div>
+    </div>
+</fieldset>
+<div class="row mb-3">
+    <label>Пароль</label>
+    <div class="col-sm-10">
+        <input type="password" name="password">
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Подтвердить</button>
+    </div>
+</div>
+</form> 

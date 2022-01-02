@@ -1,0 +1,30 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <?php
+        foreach($tableSelective as $value) : 
+            foreach($value as $key=>$val2) {
+                echo '<th scope="col">' . $key . '</th>';
+            }
+            break;
+        endforeach; 
+        ?>
+      </tr>
+    </thead>
+    <tbody>
+        <?php 
+        foreach($tableSelective as $key=>$value) : $first = true;
+        echo '<tr>';
+            foreach($value as $innerKey=>$innerVal) {
+                if ($first) {
+                    echo '<th scope="row">' . $innerVal . '</th>';
+                    $first = false;      
+                } else {
+                    echo '<td>' . $innerVal . '</td>';
+                }
+            }
+        echo '</tr>';
+        endforeach; 
+        ?>
+    </tbody>
+  </table>

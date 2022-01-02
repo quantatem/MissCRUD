@@ -1,0 +1,70 @@
+<form action="<?= $indexaction; ?>" name="contact" method="POST" enctype="multipart/form-data">
+<br/>
+<div class="row mb-3">
+    <div class="col-sm-10">
+        <select class="form-select" name="thread" aria-label="select-a-thread" required>
+            <option selected>Выберите степень проблемы</option>
+            <option value="works">Приложение работает</option>
+            <option value="crash">Приложение не работает</option>
+        </select>
+    </div>
+</div>
+    <div class="row mb-3">
+        <label for="maintext">Опишите проблему</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" id="maintext" name ="maintext" rows="3"></textarea>
+        </div>
+    </div>    
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <label for="file">Файл отчета</label>
+            <input type="file" class="form-control-file" name="file" id="file" required>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="checkbox1" name="urgent">
+            <label class="form-check-label" for="checkbox1">Срочно</label>
+            </div>
+        </div>
+    </div>
+    <?php if (!isset($_SESSION['authorized'])) : ?>
+    <h5>Немного о себе:</h5>
+    <div class="row mb-3">
+        <label>Имя Фамилия</label>
+        <div class="col-sm-10">
+            <input type="text" name="fullname">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label>Email</label>
+        <div class="col-sm-10">
+            <input type="email" name="email" required>
+        </div>
+    </div>
+    <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-4 pt-0">Ваш пол</legend>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="radioMale" value="male" checked>
+                <label class="form-check-label" for="radioMale">
+                    Мужской
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="radioFemale" value="female">
+                <label class="form-check-label" for="radioFemale">
+                    Женский
+                </label>
+            </div>
+        </div>
+    </fieldset>
+    <?php endif; ?>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+            <input type="reset" class="btn btn-primary"value="Сбросить" name="reset" />
+        </div>
+    </div>
+</form>
